@@ -11,16 +11,27 @@ const Comments = (props) => {
         `https://jsonplaceholder.typicode.com/comments`
       );
       const data = await response.json();
-      setComments(data);
+      const commentArr = CommentPerPost(data, postId);
+      console.log(commentArr);
+      setComments(commentArr);
     }
     fetchData();
-  }, []);
+  }, [postId]);
+
+  function CommentPerPost(comments, id) {
+    let commentArr = [];
+    for (const comment of comments) {
+      if (comment.postId === parseInt(id)) {
+        commentArr.push(comment);
+      }
+    }
+    return commentArr;
+  }
 
   return (
     <div>
       <h1>from comments</h1>
-      <h1>{postId}</h1>
-      {comments.forEach((comment) => (
+      {comments.map((comment) => (
         <SingleComment comment={comment}></SingleComment>
       ))}
     </div>

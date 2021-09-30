@@ -4,13 +4,7 @@ import { useParams } from "react-router";
 const UserDetails = () => {
   const { UserId } = useParams();
   const [userData, setUserData] = useState({});
-  const {
-    name,
-    email,
-    phone,
-    website,
-    address: { city },
-  } = userData;
+  const { name, email, phone, website } = userData;
 
   useEffect(() => {
     async function fetchData() {
@@ -29,7 +23,7 @@ const UserDetails = () => {
       <h3>My name is: {email}</h3>
       <h3>My name is: {phone}</h3>
       <h3>My name is: {website}</h3>
-      <h3>My name is: {city}</h3>
+      <h3>My name is: {userData.address?.city}</h3>
     </div>
   );
 };
