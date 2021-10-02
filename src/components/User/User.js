@@ -7,7 +7,7 @@ const User = (props) => {
     <div>
       <h1>From user</h1>
       <h1>Name: {name}</h1>
-      <Link to={`/user/${id}`}>Details</Link>
+      <Link to={`/users/${id}`}>Details</Link>
     </div>
   );
 };

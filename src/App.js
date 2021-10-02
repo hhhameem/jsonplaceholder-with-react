@@ -14,20 +14,20 @@ function App() {
       <BrowserRouter>
         <Header></Header>
         <Switch>
-          <Route path='/home'>
+          <Route exact path='/home'>
             <Home></Home>
           </Route>
-          <Route path='/user/:UserId'>
-            <UserDetails></UserDetails>
-          </Route>
-          <Route path='/users'>
+          <Route exact path='/users'>
             <Users></Users>
           </Route>
-          <Route path='/post/:postId'>
-            <PostDetails></PostDetails>
+          <Route exact path='/users/:UserId'>
+            <UserDetails></UserDetails>
           </Route>
-          <Route path='/posts'>
+          <Route exact path='/posts'>
             <Posts></Posts>
+          </Route>
+          <Route exact path='/posts/:postId'>
+            <PostDetails></PostDetails>
           </Route>
           <Route exact path='/'>
             <Home></Home>

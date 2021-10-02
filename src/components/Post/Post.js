@@ -7,7 +7,7 @@ const Post = (props) => {
     <div>
       <h1>UserID: {userId}</h1>
       <h1>
-        Title: <Link to={`/post/${id}`}>{title.slice(0, 20)}...</Link>
+        Title: <Link to={`/posts/${id}`}>{title.slice(0, 20)}...</Link>
       </h1>
       <h1>Body: {body.slice(0, 40)}...</h1>
     </div>
