@@ -18,10 +18,21 @@ const PostDetails = () => {
   }, [postId]);
 
   return (
-    <div>
-      <h1>From post details</h1>
-      <h1>Title: {singlePost.title}</h1>
-      <Comments postId={postId}></Comments>
+    <div className='container mx-auto my-4'>
+      <div className='mx-2 md:mx-4 custom-shadow rounded-lg p-2'>
+        <div className='mb-4'>
+          <h1>
+            <span className='font-bold'>Title</span> : {singlePost.title}.
+          </h1>
+          <h1>
+            <span className='font-bold'>Details</span> : {singlePost.body}.
+          </h1>
+        </div>
+        <div>
+          <h2 className='font-bold border-gray-900 border-b-2'>Comments:</h2>
+          <Comments postId={postId}></Comments>
+        </div>
+      </div>
     </div>
   );
 };

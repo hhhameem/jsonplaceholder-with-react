@@ -30,7 +30,6 @@ const Comments = (props) => {
 
   return (
     <div>
-      <h1>from comments</h1>
       {comments.map((comment) => (
         <SingleComment comment={comment}></SingleComment>
       ))}

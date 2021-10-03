@@ -16,10 +16,12 @@ const Posts = () => {
   }, []);
 
   return (
-    <div>
-      {posts.map((post) => (
-        <Post key={post.id} post={post}></Post>
-      ))}
+    <div className='container mx-auto my-4'>
+      <div className='mx-2 grid grid-cols-1 gap-4 md:grid-cols-3 md:mx-4 lg:grid-cols-3 lg:mx-8'>
+        {posts.map((post) => (
+          <Post key={post.id} post={post}></Post>
+        ))}
+      </div>
     </div>
   );
 };

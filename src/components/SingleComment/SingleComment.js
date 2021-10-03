@@ -1,11 +1,12 @@
 import React from "react";
 
 const SingleComment = (props) => {
-  console.log(props.comment);
   return (
-    <div>
-      <p>{props.comment.body}</p>
-      <h3>{props.comment.email}</h3>
+    <div className='my-2 p-2 border-2 border-red-700 rounded-lg'>
+      <p> - {props.comment.body}.</p>
+      <p>
+        <span className='font-bold'>From: </span> {props.comment.email}
+      </p>
     </div>
   );
 };

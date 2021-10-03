@@ -82,7 +82,7 @@ const UserDetails = () => {
       </div>
       <div className='flex justify-center'>
         <button className='btn' onClick={btnClickHandler}>
-          Go Back
+          All Users
         </button>
       </div>
     </div>
