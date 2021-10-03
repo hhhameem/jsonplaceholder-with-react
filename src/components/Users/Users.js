@@ -17,11 +17,12 @@ const Users = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to users</h1>
-      {users.map((user) => (
-        <User key={user.id} user={user}></User>
-      ))}
+    <div className='container mx-auto my-4'>
+      <div className='mx-2 grid grid-cols-1 gap-4 md:grid-cols-3 md:mx-4 lg:grid-cols-3 lg:mx-8'>
+        {users.map((user) => (
+          <User key={user.id} user={user}></User>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,18 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to home</h1>
-      <h3>
-        Here You can see Users data & Post data extracted from{" "}
-        <a href='https://jsonplaceholder.typicode.com/'>JSONPLACEHOLDER</a>
-      </h3>
-      <h3>Select what you want to see from below.</h3>
-
-      <Link to='/users'>Users</Link>
-      <Link to='/posts'>Posts</Link>
+    <div className='container my-4 text-center lg:mx-auto'>
+      <div className='mx-2'>
+        <h1 className='text-4xl mb-4'>
+          Welcome to{" "}
+          <span className='text-red-600'>JSONPlaceholder With React</span>
+        </h1>
+        <h3 className='font-medium mb-4'>
+          Here You can see <span className='font-extrabold'>Users</span> data &{" "}
+          <span className='font-extrabold'>Post</span> data extracted from{" "}
+          <a
+            className='link'
+            href='https://jsonplaceholder.typicode.com/'
+            title='jsonplaceholder.typicode.com'
+          >
+            JSONPlaceholder
+          </a>
+        </h3>
+        <p>
+          <Link to='/users' className='link'>
+            Users
+          </Link>{" "}
+          take you to users data and{" "}
+          <Link to='/posts' className='link'>
+            Posts
+          </Link>{" "}
+          take you to posts data.
+        </p>
+      </div>
     </div>
   );
 };

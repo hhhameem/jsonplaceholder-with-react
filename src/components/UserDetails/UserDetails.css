@@ -1,0 +1,24 @@
+.user-detail:hover img {
+  transform: scale(1.1);
+}
+
+.user-image {
+  transition: all 1s ease;
+}
+
+.custom-shadow {
+  box-shadow: 2px 2px 12px -3px #000000;
+}
+
+.btn {
+  margin-top: 40px;
+  padding: 15px 40px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ff0000;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  border: none;
+}
