@@ -11,8 +11,9 @@ const Home = () => {
           <span className='text-red-600'>JSONPlaceholder With React</span>
         </h1>
         <h3 className='font-medium mb-4'>
-          Here You can see <span className='font-extrabold'>Users</span> data &{" "}
-          <span className='font-extrabold'>Post</span> data extracted from{" "}
+          Here You can see <span className='font-extrabold'>Users</span> list &
+          details, <span className='font-extrabold'>Post</span> list & details
+          extracted from{" "}
           <a
             className='link'
             href='https://jsonplaceholder.typicode.com/'
