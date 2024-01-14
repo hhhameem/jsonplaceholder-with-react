@@ -1,4 +1,4 @@
-name: Build, Test and Deploy
+name: Build, Push and Deploy
 
 run-name: ${{github.actor}} has initiated ${{github.event_name}}
 on:
@@ -7,8 +7,8 @@ on:
       - "main"
 
 jobs:
-  docker:
-    runs-on: ubuntu-latest
+  docker-image-build-and-push:
+    runs-on: ubuntu-22.04
     steps:
       - name: check docker version
         run: echo docker --version
@@ -30,3 +30,19 @@ jobs:
         with:
           push: true
           tags: ${{github.repository}}:latest
+
+  deploy-to-render:
+    runs-on: ubuntu-22.04
+    needs: docker-image-build-and-push
+    steps:
+      - name: deploy to render through webhook
+        run: |
+          echo "calling render deployment hook..."
+          if [ $(curl --location ${{secrets.RENDER_DEPLOY_HOOK}} --write-out "%{http_code}" --output /dev/null) -ne 200 ];
+          then 
+            echo "HTTP Response status NOT 200, Deployment could not be possible";
+            exit 1; 
+          else 
+            echo "HTTP Response status 200 received. Deployment is initiated...";
+          fi
+          echo "deployment hook calling complete"
