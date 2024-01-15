@@ -7,8 +7,29 @@ on:
       - "main"
 
 jobs:
+  e2e-test-with-cypress:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: node -v
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress run test
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          browser: chrome
+
   docker-image-build-and-push:
     runs-on: ubuntu-22.04
+    needs: e2e-test-with-cypress
     steps:
       - name: check docker version
         run: echo docker --version
