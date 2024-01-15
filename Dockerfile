@@ -12,7 +12,9 @@ COPY ./public ./public
 
 COPY ./src ./src
 
-COPY craco.config.js tailwind.config.js ./
+COPY ./cypress ./cypress
+
+COPY craco.config.js tailwind.config.js cypress.config.js ./
 
 RUN npm run build
 
@@ -24,6 +26,6 @@ COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 8000
+EXPOSE 3000
 
 CMD [ "nginx", "-g", "daemon off;"]
