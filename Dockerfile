@@ -12,7 +12,9 @@ COPY ./public ./public
 
 COPY ./src ./src
 
-COPY craco.config.js tailwind.config.js ./
+COPY ./cypress ./cypress
+
+COPY craco.config.js tailwind.config.js cypress.config.js ./
 
 RUN npm run build
 
