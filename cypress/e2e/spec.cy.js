@@ -1,13 +1,15 @@
 describe("template spec", () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit("/");
   });
 
-  it("Click Users", () => {
-    expect(true).to.equal(true);
+  it("Click Users on navbar", () => {
+    cy.get("[data-test='nav-item-users']").contains("Users").click();
+    cy.url().should("include", "/users");
   });
 
-  it("Click Posts", () => {
-    expect(true).to.equal(false);
+  it("Click Posts on navbar", () => {
+    cy.get("[data-test='nav-item-posts']").contains("Posts").click();
+    cy.url().should("include", "/posts");
   });
 });
