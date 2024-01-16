@@ -1,6 +1,6 @@
 name: Test, Build and Deploy
 
-run-name: ${{github.actor}} has initiated ${{github.event_name}} to trigger ${{github.workflow}}
+run-name: ${{github.actor}} has initiated ${{github.event_name}} to trigger ${{github.workflow}} workflow
 on:
   push:
     branches:

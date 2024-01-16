@@ -1,74 +1,103 @@
-# Getting Started with Create React App
+# {JSON} Placeholder With React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Test, Build and Deploy](https://github.com/hhhameem/jsonplaceholder-with-react/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/hhhameem/jsonplaceholder-with-react/actions/workflows/ci-cd.yml) [![Render Status](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Frender-deploy-status-kkbv.onrender.com%2Fsrv-cmho51fqd2ns73ftn6og&query=%24.status&style=flat-square&logo=Render&label=Deployment)](https://dashboard.render.com/web/srv-cmho51fqd2ns73ftn6og)
 
-## Install Dependencies
+Simple React.js app made in my early learning-react-days. Recently brushed up to practice CI-CD. Using Cypress to test, Github actions for automation, Docker Hub to host the docker image of this service, Render to deploy the service as a docker container, and NGINX as an HTTP web server. Also, introduced Docker Compose to support ease of development and hot-reloading.
 
-### `npm install`
+Live: [https://jsonplaceholder-with-react.onrender.com/](https://jsonplaceholder-with-react.onrender.com/)
 
-## Available Scripts
+#### N.B:
 
-In the project directory, you can run:
+- Added only two basic test as this is a practice project.
+- Hosted the image repository as public to be visible to everyone
+- I did not follow best-practice in some steps intentionally.
+- There are always scope for improvement.
 
-### `npm start`
+## Technologies used for CI-CD
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Docker (To containerize application)
+- Docker compose (For learning. Not part of ci-cd)
+- Docker Hub (As container image repository)
+- Cypress (For e2e test)
+- Render (To deploy the service as docker image)
+- Github Actions (To automate the Test-Build-Deploy process)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+- Docker or Node installed
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  N.B: node v18.19.0 is required to pass the workflow.
 
-### `npm run build`
+## Use Docker to deploy locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Clone the repository
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/hhhameem/jsonplaceholder-with-react.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Go inside the repository and run the command
 
-### `npm run eject`
+```bash
+docker build -t ${name}:${tag} .
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+N.B: DO NOT MISS THE TRAILING PERIOD(.)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Now, as the docker image creation is complete we need to run the image as a container. Run the command below to achieve that
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+docker run ${name}:${tag}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The service should be now up and running.
 
-## Learn More
+## Use traditional way to deploy locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Clone the repository
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone https://github.com/hhhameem/jsonplaceholder-with-react.git
+```
 
-### Code Splitting
+- Go inside the repository and run the command
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+```
 
-### Analyzing the Bundle Size
+- Now, as all the packages are downloaded we need to start the development server. Run the command below to achieve that
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+The service should be now up and running.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Run Cypress to test
 
-### Advanced Configuration
+You need to run the below command inside the project root folder to install the cypress to use it.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm install
+```
 
-### Deployment
+Now as Cypress is installed you can run the below command to run the tests. Before running the command, make sure the service is up and running
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npx cypress run
+```
 
-### `npm run build` fails to minify
+## Images
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Github Workflow :
+
+![github-workflow](./public/images/github-workflow.png)
+
+Render Deployment :
+
+![render-deployment](./public/images/render-deployment.png)
+
+## Thanks goes to
+
+- [render-deploy-status](https://github.com/Cutaiar/render-deploy-status) for deployment status badge
